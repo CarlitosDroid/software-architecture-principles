@@ -1,7 +1,12 @@
 package com.carlitosdroid.abstraction.explicit_interfaces.shop
 
-class Restaurant() : Shop {
+import com.carlitosdroid.abstraction.explicit_interfaces.payment_method.PaymentMethod
+
+class Restaurant(private val paymentMethod: PaymentMethod) : Shop {
+
     override fun sale() {
-        print("Selling food...")
+        println("Selling food...")
+        paymentMethod.processPayment()
     }
+
 }
